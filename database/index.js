@@ -15,14 +15,32 @@ let repoSchema = mongoose.Schema({
   private: Boolean,
   forks: Number,
   dates: {
-    createdAt: Date,
-    UpdatedAt: Date
+    createdAt: String,
+    UpdatedAt: String
   }
 });
 
 let Repo = mongoose.model('Repo', repoSchema);
 
-let save = (/* TODO */) => {
+let save = (GHData) => {
+  //GH data is the big data that github is sending
+
+  let test = new Repo({
+    repoID: 4,
+    repoName: 'hi',
+    repoURL: 'hi',
+    userID: 'hi',
+    private: true,
+    forks: 7,
+    dates: {
+      createdAt: 'hi',
+      UpdatedAt: 'hi'
+    }
+  });
+
+  const doc = Repo.find({repoID : 4});
+  console.log(doc)
+
   // TODO: Your code here
   // This function should save a repo or repos to
   // the MongoDB
