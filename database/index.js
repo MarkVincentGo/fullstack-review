@@ -90,7 +90,7 @@ let save = (GHData, callback) => {
 }
 
 let retrieve = (username, callback) => {
-  Repo.find({}, (err, docs) => {
+  Repo.find( {username: username}, null, {limit: 25}, (err, docs) => {
     if (err) {
       callback(err, null)
     } else {

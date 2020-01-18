@@ -1,8 +1,11 @@
 import React from 'react';
+import RepoEntry from './RepoEntry.jsx';
 
 const RepoList = (props) => (
-  <div>
-    <h4> Repo List Component </h4>
+  <div className="list">
+    {props.repos.map((repo, i) => (
+      <RepoEntry key={i} repo={repo}/>
+    ))}
     There are {props.repos.length} repos.
   </div>
 )

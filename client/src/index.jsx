@@ -33,8 +33,10 @@ class App extends React.Component {
       url: 'http://localhost:1128/repos',
       data: JSON.stringify({username: term}),
       contentType: 'application/json',
-      success: (message) => {
-        console.log(message)
+      success: (data) => {
+        this.setState({
+          repos: data
+        })
       }
     })
   }

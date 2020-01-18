@@ -16,9 +16,15 @@ app.post('/repos', function (req, res) {
       if (err) {
         res.send(err)
       } else {
-        res.send(success)
+        database.retrieve(username, (err, data) => {
+          if (err) {
+            res.send(err);
+          } else {
+            res.send(data);
+          }
+        })
       }
-    })
+    });
 
   })
   // TODO - your code here!
@@ -28,7 +34,7 @@ app.post('/repos', function (req, res) {
 });
 
 app.get('/repos', function (req, res) {
-  let list = database.retrieve(';lkjdnv', (err, data) => {
+  database.retrieve(';lkjdnv', (err, data) => {
     if (err) {
       res.send(err);
     } else {
