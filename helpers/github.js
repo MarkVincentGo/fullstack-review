@@ -18,7 +18,7 @@ let getReposByUsername = (username, callback) => {
 
   request.get(options, (err, response, body) => {
     if (err) {
-      callback(err, null)
+      console.log(err, null)
     } else {
       callback(null, {res: response.statusCode, body: body})
       //console.log(body)
@@ -27,6 +27,5 @@ let getReposByUsername = (username, callback) => {
 
 }
 
-getReposByUsername('MarkVincentGo', () => {})
 
 module.exports.getReposByUsername = getReposByUsername;
